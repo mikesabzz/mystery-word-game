@@ -13,6 +13,8 @@ class Word
     # Should return a boolean. true if the letter is in the word, false if not.
     def guess?(letter)
       word = @word.include?(letter) 
+      puts "Guess a letter:"
+      letter = gets.chomp
       if word == false
       puts "there is no #{letter} in #{@word}."
       else 
@@ -25,6 +27,7 @@ class Word
       letter_arr = []
       letter_arr.push(letter)
       letter_arr.each { |lett| puts "guess wrong" if @word.include?(letter) == false}
+      letter_arr.each { |lett| puts "guess right" if @word.include?(letter) == true}
     end
   
     # Display the current state of the guessed word for the player.
@@ -60,7 +63,7 @@ class Word
   
   bird = Word.new('bird')
   bird.guess?('i')
-  bird.guessed_all_correct('j')
+  bird.guessed_all_correct('b')
   bird.output_word('bird')
   Word.is_letter?('bird')
   
